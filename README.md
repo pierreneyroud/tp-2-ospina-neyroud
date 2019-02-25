@@ -18,16 +18,24 @@
 		* "_" contient
 		
 	Question 4 : Créez une variable locale MY_VAR (le contenu n’a pas d’importance). Vérifiez que la variable existe.
-      		* 
+      		* MY_VAR="abcd";
+		* echo $MY_VAR
+		* La variable existe bien.
       
 	Question 5 : Tapez ensuite la commande bash. Que fait-elle ? La variable MY_VAR existe-t-elle ? Expliquez. A la fin de cette question, tapez la commande exit pour revenir dans votre session initiale.
-      		* 
+      		* "bash" signifie Bourne Again Shell, elle ouvre un nouveau shell (interpréteur de commandes) sh amélioré, et la version par défaut sous Linux.
+		* La variable "MY_VAR" n'existe pas car elle a été déclaré en tant que variable locale et n'est donc disponible que dans la session où elle a été créée.
+	
       
 	Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
-      		* 
+      		* export MY_VAR="abcd";
+		* printenv MY_VAR
+		* La variable existe bien car elle est devenu une variable d'environnement elle n'est plus locale.
 
 	Question 7 : Créer la variable d’environnement NOMS ayant pour contenu vos noms de binômes séparés par un espace. Afficher la valeur de NOMS pour vérifier que l’affectation est correcte.
-      		* 
+      		* export NOMS="ospina neyroud"
+		* printenv NOMS
+		* L'affectation est correcte "ospina neyroud".
 
 	Question 8 : Ecrivez une commande qui affiche ”Bonjour à vous deux, binôme1 binôme2 !” (où binôme1 et binôme2 sont vos deux noms) en utilisant la variable NOMS.
       		* 
