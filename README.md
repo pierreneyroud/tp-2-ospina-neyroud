@@ -43,10 +43,9 @@
 		* echo 'Bonjour à vous deux,' $NOMS '!'
 		* On le rend executable avec la commande "chmod u+x script.sh"
 		* et on l'execute avec "./script.sh"
-
       
  	Question 9 : Quelle différence y a-t-il entre donner une valeur vide à une variable et l’utilisation de la commande unset ?
-      		* 
+      		* La commande "unset" supprime la variable d'environnement du système alors que donner une valeur vide à une variable ne la supprime pas mais laisse un contenu vide.
 
 	Question 10 : Utilisez la commande echo pour écrire exactement la phrase : $HOME = chemin (où chemin est votre dossier personnel d’après bash)
       		* 
