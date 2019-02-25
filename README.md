@@ -26,7 +26,6 @@
       		* "bash" signifie Bourne Again Shell, elle ouvre un nouveau shell (interpréteur de commandes) sh amélioré, et la version par défaut sous Linux.
 		* La variable "MY_VAR" n'existe pas car elle a été déclaré en tant que variable locale et n'est donc disponible que dans la session où elle a été créée.
 	
-      
 	Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
       		* export MY_VAR="abcd";
 		* printenv MY_VAR
@@ -48,7 +47,8 @@
       		* La commande "unset" supprime la variable d'environnement du système alors que donner une valeur vide à une variable ne la supprime pas mais laisse un contenu vide.
 
 	Question 10 : Utilisez la commande echo pour écrire exactement la phrase : $HOME = chemin (où chemin est votre dossier personnel d’après bash)
-      		* 
+      		* echo '$HOME = ' $HOME
+		* On obtient : "$HOME =  /fs03/share/users/pierre.neyroud/home".
 
 	
 		Vous enregistrerez vos scripts dans un dossier script que vous créerez dans votre répertoire personnel.
