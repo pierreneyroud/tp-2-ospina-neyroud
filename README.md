@@ -38,7 +38,12 @@
 		* L'affectation est correcte "ospina neyroud".
 
 	Question 8 : Ecrivez une commande qui affiche ”Bonjour à vous deux, binôme1 binôme2 !” (où binôme1 et binôme2 sont vos deux noms) en utilisant la variable NOMS.
-      		* 
+      		* On créer un script bash "nano script.sh" avec le contenu suivant :
+		* #!/bin/bash
+		* echo 'Bonjour à vous deux,' $NOMS '!'
+		* On le rend executable avec la commande "chmod u+x script.sh"
+		* et on l'execute avec "./script.sh"
+
       
  	Question 9 : Quelle différence y a-t-il entre donner une valeur vide à une variable et l’utilisation de la commande unset ?
       		* 
