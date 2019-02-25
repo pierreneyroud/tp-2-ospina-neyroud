@@ -62,16 +62,18 @@
 		contenu d’une variable PASSWORD dont le contenu est codé en dur dans le script. Le mot de passe saisi par
 		l’utilisateur ne doit pas s’afficher.
 		
-		* #!/bin/bash
-		*PASSWORD=admin
-		*read -p 'Saisissez un mot de passe var : ' -s var 
-		*echo ''
-		*if [ PASSWORD=var ]
-		*then
-		*	echo 'Le mot de pass correspond.'
-		*else
-		*	echo 'Le mot de passe ne correspond pas.'
-		*fi
+		'''
+		#!/bin/bash
+		PASSWORD=admin
+		read -p 'Saisissez un mot de passe var : ' -s var 
+		echo ''
+		if [ PASSWORD=var ]
+		then
+			echo 'Le mot de pass correspond.'
+		else
+			echo 'Le mot de passe ne correspond pas.'
+		fi
+		'''
 
 	
 
@@ -90,29 +92,25 @@
 		}
 		Il affichera un message d’erreur dans le cas contraire
 		
-		*#!/bin/bash
-
-		*function is_number()
-		*{
-		*	re='^[+-]?[0-9]+([.][0-9]+)?$'
-		*	if ! [[ $1 =~ $re ]] ; then
-		*		return 1
-		*	else
-		*		return 0
-		*	fi
-		*}
-		*is_number $1
-		*
-		*
-		*if [ $? = 0 ]
-		*then
-		*	echo 'Le paramètre est un réel'
-		*else 
-		*	echo "Le paramètre n'est pas un nombre réel"
-		*fi 
+		#!/bin/bash
+		function is_number()
+		{
+			re='^[+-]?[0-9]+([.][0-9]+)?$'
+			if ! [[ $1 =~ $re ]] ; then
+				return 1
+			else
+				return 0
+			fi
+		}
+		is_number $1
+	
+		if [ $? = 0 ]
+		then
+			echo 'Le paramètre est un réel'
+		else 
+			echo "Le paramètre n'est pas un nombre réel"
+		fi 
 		
-
-
 	* __Exercice 4. Contrôle d’utilisateur__
 	
 		Écrivez un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisation : nom_du_script nom_utilisateur”,
