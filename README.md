@@ -223,10 +223,7 @@
 	
 	* __Exercice 8. Pour les plus rapides__
 
-		Écrivez un script qui affiche les combinaisons possibles de couleurs (cf. TP 1) :
-	
-	
-	
+		Écrivez un script qui affiche les combinaisons possibles de couleurs (cf. TP 1)
 	
 	
 	
