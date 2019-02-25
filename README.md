@@ -62,7 +62,7 @@
 		contenu d’une variable PASSWORD dont le contenu est codé en dur dans le script. Le mot de passe saisi par
 		l’utilisateur ne doit pas s’afficher.
 		
-		'''
+		```
 		#!/bin/bash
 		PASSWORD=admin
 		read -p 'Saisissez un mot de passe var : ' -s var 
@@ -73,7 +73,7 @@
 		else
 			echo 'Le mot de passe ne correspond pas.'
 		fi
-		'''
+		```
 
 	
 
