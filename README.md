@@ -1,6 +1,6 @@
 **TP 2 - Bash**
 
-	Ce deuxième TP a pour but d’approfondir vos connaissances sur Bash, les variables d’environnement et 		l’automatisation de tâches via la programmation de scripts.
+	Ce deuxième TP a pour but d’approfondir vos connaissances sur Bash, les variables d’environnement et l’automatisation de tâches via la programmation de scripts.
 
 	* __Exercice 1. Variables d’environnement__
 	
@@ -62,8 +62,8 @@
 		contenu d’une variable PASSWORD dont le contenu est codé en dur dans le script. Le mot de passe saisi par
 		l’utilisateur ne doit pas s’afficher.
 		
-		```
 		#!/bin/bash
+		
 		PASSWORD=admin
 		read -p 'Saisissez un mot de passe var : ' -s var 
 		echo ''
@@ -73,7 +73,6 @@
 		else
 			echo 'Le mot de passe ne correspond pas.'
 		fi
-		```
 
 	
 
@@ -93,6 +92,7 @@
 		Il affichera un message d’erreur dans le cas contraire
 		
 		#!/bin/bash
+		
 		function is_number()
 		{
 			re='^[+-]?[0-9]+([.][0-9]+)?$'
@@ -113,49 +113,114 @@
 		
 	* __Exercice 4. Contrôle d’utilisateur__
 	
-		Écrivez un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisation : nom_du_script nom_utilisateur”,
-		où nom_du_script est le nom de votre script récupéré automatiquement (si vous changez le nom de votre
-		script, le message doit changer automatiquement)
-	
-	#!/bin/bash
+		Écrivez un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisation : nom_du_script nom_utilisateur”, où nom_du_script est le nom de votre script récupéré automatiquement (si vous changez le nom de votre script, le message doit changer automatiquement)
 
-if [ $1 = '' ]
-then
-        echo 'Utilisation : ' $0 ' nom_utilisateur'
-else
-        grep ^$1 /etc/passwd -q
-        echo $?
-        if [ $? = 0 ]
-        then
-                echo 'il est dedans'
-        else
-                echo 'il est pas dedans'
-        fi
-fi
+		#!/bin/bash
 
-	
+		if [ -z $1 ];then
+			echo "Utilisation : $0 nom_utilisateur"
+		else
+			for user in $(cut -d: -f1 /etc/passwd)
+			do
+				if [ $user = $1 ];then
+					echo "L'utilisateur existe"
+					exit
+				fi
+			done
+			echo "L'utilisateur n'existe pas"
+		fi
 	
 	* __Exercice 5. Factorielle__
 
-		Écrivez un programme qui calcule la factorielle d’un entier naturel passé en paramètre (on supposera que
-		l’utilisateur saisit toujours un entier naturel).
+		Écrivez un programme qui calcule la factorielle d’un entier naturel passé en paramètre (on supposera que l’utilisateur saisit toujours un entier naturel).
 	
+		#!/bin/bash
+		
+		fact=1
+
+		for i in $(seq 1 $1)
+		do
+			fact=$(( fact * i))
+		done
+		echo "$fact"
+	
+
 	* __Exercice 6. Le juste prix__
 	
-		Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner.
-		Le programme écrira ”C’est plus !”, ”C’est moins !” ou ”Gagné !” selon les cas (vous utiliserez $RANDOM).
+		Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner. Le programme écrira ”C’est plus !”, ”C’est moins !” ou ”Gagné !” selon les cas (vous utiliserez $RANDOM).
+
+		#!/bin/bash
+		
+		nombre=$((RANDOM%10000+1))
+		while :
+		do
+			read -p "Entrez le nombre cherché: " input
+			if [ $input -eq $nombre ]; then
+				echo "Bravo !"
+				exit
+			elif [ $input -lt $nombre ]; then
+				echo "C'est plus !"
+			else
+				echo "C'est moins !"
+			fi
+		done
 
 	* __Exercice 7. Statistiques__
 
 	Question 1 : Écrivez un script qui prend en paramètres trois entiers (entre -100 et +100) et affiche le min, le max et la moyenne. Vous pouvez réutiliser la fonction de l’exercice 3 pour vous assurer que les paramètres sont bien des entiers.
-		*
-		
 	Question 2 : Généralisez le programme à un nombre quelconque de paramètres (pensez à SHIFT)
-		*
-		
 	Question 3 : Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies et stockées au fur et à mesure dans un tableau.
-		*
-		
+	
+		#!/bin/bash
+
+		function is_number()
+		{
+			re='^[+-]?[0-9]+([.][0-9]+)?$'
+			if ! [[ $1 =~ $re ]] ; then
+				return 1
+			else
+				return 0
+			fi
+		}
+
+		taille=0
+		test=1
+		while [ test ] :
+		do
+			read -p "Entrez un nouveau nombre ou stop " input
+			if [ input = "stop" ]; then
+				test=0
+			else
+				tab[taille]=$input
+				taille++
+			fi
+		done
+		if [ taille -eq 0 ]; then
+			exit
+		else
+			max=${tab[0]}
+			min=${tab[0]}
+			moy=0
+			for i in tab
+			do
+				moy=$(( moy + i ))
+				if [ $i -lt $min ]; then
+					min=$(( i ))
+				fi
+				if [ $max -lt $i ]; then
+					max=$(( i))
+				fi
+			done
+			moy=$((moy / taille))
+
+
+		fi
+
+		echo $max
+		echo $min
+		echo $moy
+	
+	
 	* __Exercice 8. Pour les plus rapides__
 
 		Écrivez un script qui affiche les combinaisons possibles de couleurs (cf. TP 1) :
