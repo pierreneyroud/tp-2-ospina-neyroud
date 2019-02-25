@@ -115,10 +115,26 @@
 
 	* __Exercice 4. Contrôle d’utilisateur__
 	
-		Écrivez un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le
-		script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisation : nom_du_script nom_utilisateur”,
+		Écrivez un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisation : nom_du_script nom_utilisateur”,
 		où nom_du_script est le nom de votre script récupéré automatiquement (si vous changez le nom de votre
 		script, le message doit changer automatiquement)
+	
+	#!/bin/bash
+
+if [ $1 = '' ]
+then
+        echo 'Utilisation : ' $0 ' nom_utilisateur'
+else
+        grep ^$1 /etc/passwd -q
+        echo $?
+        if [ $? = 0 ]
+        then
+                echo 'il est dedans'
+        else
+                echo 'il est pas dedans'
+        fi
+fi
+
 	
 	
 	* __Exercice 5. Factorielle__
