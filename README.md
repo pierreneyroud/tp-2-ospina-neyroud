@@ -15,7 +15,7 @@
       		* "PWD" contient le chemin du répertoire courant, "/bin" dans notre cas.
 		* "OLDPWD" contient le chemin de l'ancien répertoire courant "/fs03/share/users/pierre.neyroud/home" dans notre cas.
 		* "SHELL" contient l'interpréteur de commande utilisateur défini dans "/etc/passwd".
-		* "_" contient
+		* "_" pointe vers le dernier argument avec la commande « echo "$_" »
 		
 	Question 4 : Créez une variable locale MY_VAR (le contenu n’a pas d’importance). Vérifiez que la variable existe.
       		* MY_VAR="abcd";
