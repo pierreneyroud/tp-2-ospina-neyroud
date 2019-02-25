@@ -34,7 +34,7 @@
 	Question 10 : Utilisez la commande echo pour écrire exactement la phrase : $HOME = chemin (où chemin est votre dossier personnel d’après bash)
       		* 
 
-**Programmation Bash**
+*Programmation Bash*
 	
 		Vous enregistrerez vos scripts dans un dossier script que vous créerez dans votre répertoire personnel.
 		Tous les scripts sont bien entendu à tester.
