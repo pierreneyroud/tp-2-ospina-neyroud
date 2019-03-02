@@ -14,8 +14,7 @@ Il les trouve dans tous les dossiers contenus dans la variable $PATH à savoir :
 * /bin
   
 #### Question 2 : Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans votre répertoire personnel ?
-Il s'agit de la variable d'environnement $HOME. On peut d'ailleurs l'afficher dans le terminal en saisissant la commande ```bash 
-printenv HOME```
+Il s'agit de la variable d'environnement $HOME. On peut d'ailleurs l'afficher dans le terminal en saisissant la commande ```printenv HOME```
       
 #### Question 3 : Explicitez le rôle des variables LANG, PWD, OLDPWD, SHELL et _.
 * "LANG" contient la langue sélectionnée pour le système, "fr_FR.UTF-8" dans notre cas.
@@ -43,7 +42,7 @@ Enfin, en tapant ```exit``` nous revenons à la couche précédente, nous redonn
 	
 #### Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
 On va saisir la suite de commande : 
-```
+```bash
 export MY_VAR="abcd" 
 printenv MY_VAR
 ```
@@ -51,7 +50,7 @@ La variable existe bien car elle est devenu une variable d'environnement.
 
 #### Question 7 : Créer la variable d’environnement NOMS ayant pour contenu vos noms de binômes séparés par un espace. Afficher la valeur de NOMS pour vérifier que l’affectation est correcte.
 On va saisir la suite de commande : 
-```
+```bash
 export NOMS="ospina neyroud 
 printenv NOMS
 ```
@@ -59,7 +58,7 @@ L'affectation est correcte "ospina neyroud".
 
 #### Question 8 : Ecrivez une commande qui affiche ”Bonjour à vous deux, binôme1 binôme2 !” (où binôme1 et binôme2 sont vos deux noms) en utilisant la variable NOMS.
 On va créer un script bash "nano script.sh" avec le contenu suivant :
-```
+```sh
 #!/bin/bash
 echo 'Bonjour à vous deux,' $NOMS '!'
 ```
