@@ -30,10 +30,11 @@ On va ensuite l'afficher à l'aide du $ (on aurait MY_VAR d'affiché sinon) :
 ```echo $MY_VAR```
       
 #### Question 5 : Tapez ensuite la commande bash. Que fait-elle ? La variable MY_VAR existe-t-elle ? Expliquez. A la fin de cette question, tapez la commande exit pour revenir dans votre session initiale.
-Taper la commande ```bash```   
+Taper la commande ```bash``` va lancer un nouvel interpréteur de commande (un shell sh amélioré).  
+La saisie de la commande ```echo $MY_VAR``` ne va donc rien donner puisque cette variable à été a été déclarée en tant que variable locale !  
+La saisie de la commande ```echo $SHLVL``` est utilie puisqu'elle nous renvoie le niveau dans lequel nous nous trouvons actuellement.  
+Enfin, en tapant ```exit``` nous revenons à la couche précédente, nous redonnant ainsi accès à la variable "MY_VAR".
 
-"bash" signifie Bourne Again Shell, elle ouvre un nouveau shell (interpréteur de commandes) sh amélioré, et la version par défaut sous Linux.
-* La variable "MY_VAR" n'existe pas car elle a été déclaré en tant que variable locale et n'est donc disponible que dans la session où elle a été créée.
 	
 #### Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
 * export MY_VAR="abcd";
