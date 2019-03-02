@@ -166,9 +166,7 @@ function fact()
     fact $1
   fi
 }
-```
 
-```bash
 export FACT=1
 fact $1
 echo "$FACT"
