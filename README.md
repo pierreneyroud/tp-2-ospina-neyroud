@@ -89,20 +89,20 @@ Ensuite nous allons ajouter le chemin vers ce dossier dans la variable d'environ
 ## Exercice 2. Contrôle de mot de passe
 	
 #### Écrivez un script testpwd.sh qui demande de saisir un mot de passe et vérifie s’il correspond ou non au contenu d’une variable PASSWORD dont le contenu est codé en dur dans le script. Le mot de passe saisi par l’utilisateur ne doit pas s’afficher.
-		
-		#!/bin/bash
-		
-		PASSWORD=admin
-		read -p 'Saisissez un mot de passe var : ' -s var 
-		echo ''
-		if [ PASSWORD=var ]
-		then
-			echo 'Le mot de pass correspond.'
-		else
-			echo 'Le mot de passe ne correspond pas.'
-		fi
 
-	
+```sh
+#!/bin/bash
+PASSWORD=admin
+
+read -p 'Saisissez un mot de passe var : ' -s var 
+echo ''
+	if [ PASSWORD=var ]
+	then
+		echo 'Le mot de pass correspond.'
+	else
+		echo 'Le mot de passe ne correspond pas.'
+	fi
+```
 
 ## Exercice 3. Expressions rationnelles
 	
