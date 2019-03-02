@@ -14,15 +14,14 @@ Il les trouve dans tous les dossiers contenus dans la variable $PATH à savoir :
 * /bin
   
 #### Question 2 : Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans votre répertoire personnel ?
-Il s'agit de la variable d'environnement $HOME. On peut d'ailleurs l'afficher dans le terminal en saisissant la commande '''bash 
-printenv HOME
+Il s'agit de la variable d'environnement $HOME. On peut d'ailleurs l'afficher dans le terminal en saisissant la commande "printenv HOME".
       
 #### Question 3 : Explicitez le rôle des variables LANG, PWD, OLDPWD, SHELL et _.
 * "LANG" contient la langue sélectionnée pour le système, "fr_FR.UTF-8" dans notre cas.
 * "PWD" contient le chemin du répertoire courant, "/bin" dans notre cas.
 * "OLDPWD" contient le chemin de l'ancien répertoire courant "/fs03/share/users/pierre.neyroud/home" dans notre cas.
 * "SHELL" contient l'interpréteur de commande utilisateur défini dans "/etc/passwd".
-* "_" pointe vers le dernier argument avec la commande « echo "$_" »
+* "_" affiche l'emplacement de la commande printenv.
 		
 #### Question 4 : Créez une variable locale MY_VAR (le contenu n’a pas d’importance). Vérifiez que la variable existe.
 * MY_VAR="abcd";
