@@ -25,7 +25,7 @@ Il s'agit de la variable d'environnement $HOME. On peut d'ailleurs l'afficher da
 		
 #### Question 4 : Créez une variable locale MY_VAR (le contenu n’a pas d’importance). Vérifiez que la variable existe.
 On va tout d'abord créer la variable locale MY_VAR : 
-``` MY_VAR="abcd"; ```
+``` MY_VAR="abcd"; ``` &nbsp;
 On va ensuite l'afficher à l'aide du $ (on aurait MY_VAR d'affiché sinon) :
 ``` echo $MY_VAR ```
       
