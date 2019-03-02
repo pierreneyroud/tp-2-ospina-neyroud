@@ -90,53 +90,45 @@ Ensuite nous allons ajouter le chemin vers ce dossier dans la variable d'environ
 	
 #### Écrivez un script testpwd.sh qui demande de saisir un mot de passe et vérifie s’il correspond ou non au contenu d’une variable PASSWORD dont le contenu est codé en dur dans le script. Le mot de passe saisi par l’utilisateur ne doit pas s’afficher.
 
-```sh
+```sh   
 #!/bin/bash
-PASSWORD=admin
 
-read -p 'Saisissez un mot de passe var : ' -s var 
-echo ''
-	if [ PASSWORD=var ]
-	then
-		echo 'Le mot de pass correspond.'
-	else
-		echo 'Le mot de passe ne correspond pas.'
-	fi
+PASSWORD="admin"
+
+read -p 'Saisissez le mot de passe ' mdp
+
+if ["$PASSWORD" = "$mdp"]; then
+	echo "Bon mot de passe :)"
+else
+	echo "Mauvais mot de passe :("
+fi
 ```
 
 ## Exercice 3. Expressions rationnelles
 	
 #### Ecrivez un script qui prend un paramètre et utilise la fonction suivante pour vérifier que ce paramètre est un nombre réel :
-		function is_number()
-		{
-			re='^[+-]?[0-9]+([.][0-9]+)?$'
-			if ! [[ $1 =~ $re ]] ; then
-				return 1
-			else
-				return 0
-			fi
-		}
-		Il affichera un message d’erreur dans le cas contraire
-		
-		#!/bin/bash
-		
-		function is_number()
-		{
-			re='^[+-]?[0-9]+([.][0-9]+)?$'
-			if ! [[ $1 =~ $re ]] ; then
-				return 1
-			else
-				return 0
-			fi
-		}
-		is_number $1
-	
-		if [ $? = 0 ]
-		then
-			echo 'Le paramètre est un réel'
-		else 
-			echo "Le paramètre n'est pas un nombre réel"
-		fi 
+
+```sh   
+#!/bin/bash
+
+function is_number()
+{
+	re='^[+-]?[0-9]+([.][0-9]+)?$'
+	if ! [[ $1 =~ $re ]] ; then
+		return 1
+	else
+		return 0
+	fi
+}
+
+read -p "Saisissez un nombre " nb
+is_number $nb
+if [ $? -eq 0 ]; then
+	echo "C'est bien un nombre :)"
+else
+	echo "Ce n'est pas un nombre :("
+fi
+```
 		
 ## Exercice 4. Contrôle d’utilisateur
 	
