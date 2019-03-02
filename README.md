@@ -1,12 +1,18 @@
 # TP 2 - Bash
 
-Ce deuxième TP a pour but d’approfondir vos connaissances sur Bash, les variables d’environnement et l’automatisation de tâches via la programmation de scripts.
+Ce deuxième TP a pour but d’approfondir nos connaissances sur Bash, les variables d’environnement et l’automatisation de tâches via la programmation de scripts.
 
 ## Exercice 1. Variables d’environnement
 	
 #### Question 1 : Dans quels dossiers bash trouve-t-il les commandes tapées par l’utilisateur ?
-On les trouve dans le dossier "bin".
-      
+Il les trouve dans tous les dossiers contenus dans la variable $PATH à savoir : 
+* /usr/local/sbin
+* /usr/local/bin
+* /usr/sbin
+* /usr/bin
+* /sbin
+* /bin
+  
 #### Question 2 : Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans votre répertoire personnel ?
 Il s'agit de la variable "HOME". On peut d'ailleurs l'afficher dans le terminal en saisissant la commande "printenv HOME".
       
