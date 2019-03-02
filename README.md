@@ -143,29 +143,37 @@ else
 	for user in $(cut -d: -f1 /etc/passwd)
 	do
 		if [ $user = $1 ];then
-			echo "L'utilisateur existe"
+			echo "Utilisateur trouvé :)"
 			exit
 		fi
 	done
-	echo "L'utilisateur n'existe pas"
+	echo "Utilisateur non trouvé :("
 fi
 ```   
 	
 ## Exercice 5. Factorielle
 
 #### Écrivez un programme qui calcule la factorielle d’un entier naturel passé en paramètre (on supposera que l’utilisateur saisit toujours un entier naturel).
-	
-		#!/bin/bash
-		
-		fact=1
 
-		for i in $(seq 1 $1)
-		do
-			fact=$(( fact * i))
-		done
-		echo "$fact"
-	
+```sh   
+#!/bin/bash
 
+function fact()
+{
+  FACT=$FACT*$1
+  $1="$1"-1
+  if ! [ $1 = 1 ]; then
+    fact $1
+  fi
+}
+```
+
+```bash
+export FACT=1
+fact $1
+echo "$FACT"
+```
+	
 ## Exercice 6. Le juste prix 
 	
 #### Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner. Le programme écrira ”C’est plus !”, ”C’est moins !” ou ”Gagné !” selon les cas (vous utiliserez $RANDOM).
