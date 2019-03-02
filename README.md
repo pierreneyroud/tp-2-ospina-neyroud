@@ -95,7 +95,7 @@ Ensuite nous allons ajouter le chemin vers ce dossier dans la variable d'environ
 
 PASSWORD="admin"
 
-read -p 'Saisissez le mot de passe ' mdp
+read -p 'Saisissez le mot de passe ' -s mdp
 
 if ["$PASSWORD" = "$mdp"]; then
 	echo "Bon mot de passe :)"
@@ -134,20 +134,22 @@ fi
 	
 #### Écrivez un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisation : nom_du_script nom_utilisateur”, où nom_du_script est le nom de votre script récupéré automatiquement (si vous changez le nom de votre script, le message doit changer automatiquement)
 
-		#!/bin/bash
+```sh   
+#!/bin/bash
 
-		if [ -z $1 ];then
-			echo "Utilisation : $0 nom_utilisateur"
-		else
-			for user in $(cut -d: -f1 /etc/passwd)
-			do
-				if [ $user = $1 ];then
-					echo "L'utilisateur existe"
-					exit
-				fi
-			done
-			echo "L'utilisateur n'existe pas"
+if [ -z $1 ];then
+	echo "Utilisation : $0 nom_utilisateur"
+else
+	for user in $(cut -d: -f1 /etc/passwd)
+	do
+		if [ $user = $1 ];then
+			echo "L'utilisateur existe"
+			exit
 		fi
+	done
+	echo "L'utilisateur n'existe pas"
+fi
+```   
 	
 ## Exercice 5. Factorielle
 
