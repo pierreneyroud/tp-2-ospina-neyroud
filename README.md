@@ -38,10 +38,8 @@ Enfin, en tapant ```exit``` nous revenons à la couche précédente, nous redonn
 	
 #### Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
 On va saisir la suite de commande : 
-```
-export MY_VAR="abcd";
+```export MY_VAR="abcd"; 
 printenv MY_VAR
-
 ```
 La variable existe bien car elle est devenu une variable d'environnement.
 
