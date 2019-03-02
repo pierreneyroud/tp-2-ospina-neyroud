@@ -178,77 +178,81 @@ echo "$FACT"
 	
 #### Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner. Le programme écrira ”C’est plus !”, ”C’est moins !” ou ”Gagné !” selon les cas (vous utiliserez $RANDOM).
 
-		#!/bin/bash
-		
-		nombre=$((RANDOM%10000+1))
-		while :
-		do
-			read -p "Entrez le nombre cherché: " input
-			if [ $input -eq $nombre ]; then
-				echo "Bravo !"
-				exit
-			elif [ $input -lt $nombre ]; then
-				echo "C'est plus !"
-			else
-				echo "C'est moins !"
-			fi
-		done
+```sh  
+#!/bin/bash
+
+prix=$(((RANDOM%1000)+1))
+
+devine=-1
+
+while [ $devine -ne $prix ]
+do
+read devine
+if [ $devine -gt $prix ]; then
+  echo 'C'est moins !'
+fi
+if [ $devine -lt $prix ]; then
+  echo 'C'est plus !'
+fi
+done
+
+echo 'Gagné !'
+```
 
 ## Exercice 7. Statistiques
 
 #### Question 1 : Écrivez un script qui prend en paramètres trois entiers (entre -100 et +100) et affiche le min, le max et la moyenne. Vous pouvez réutiliser la fonction de l’exercice 3 pour vous assurer que les paramètres sont bien des entiers.
 #### Question 2 : Généralisez le programme à un nombre quelconque de paramètres (pensez à SHIFT)
 #### Question 3 : Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies et stockées au fur et à mesure dans un tableau.
-	
-		#!/bin/bash
 
-		function is_number()
-		{
-			re='^[+-]?[0-9]+([.][0-9]+)?$'
-			if ! [[ $1 =~ $re ]] ; then
-				return 1
-			else
-				return 0
-			fi
-		}
+```sh  
+#!/bin/bash
 
-		taille=0
-		test=1
-		while [ test ] :
-		do
-			read -p "Entrez un nouveau nombre ou stop " input
-			if [ input = "stop" ]; then
-				test=0
-			else
-				tab[taille]=$input
-				taille++
-			fi
-		done
-		if [ taille -eq 0 ]; then
-			exit
-		else
-			max=${tab[0]}
-			min=${tab[0]}
-			moy=0
-			for i in tab
-			do
-				moy=$(( moy + i ))
-				if [ $i -lt $min ]; then
-					min=$(( i ))
-				fi
-				if [ $max -lt $i ]; then
-					max=$(( i))
-				fi
-			done
-			moy=$((moy / taille))
+function is_number()
+{
+	re='^[+-]?[0-9]+([.][0-9]+)?$'
+	if ! [[ $1 =~ $re ]] ; then
+		return 1
+	else
+		return 0
+	fi
+}
 
-
+taille=0
+test=1
+while [ test ] :
+do
+	read -p "Entrez un nouveau nombre ou stop " input
+	if [ input = "stop" ]; then
+		test=0
+	else
+		tab[taille]=$input
+		taille++
+	fi
+done
+if [ taille -eq 0 ]; then
+	exit
+else
+	max=${tab[0]}
+	min=${tab[0]}
+	moy=0
+	for i in tab
+	do
+		moy=$(( moy + i ))
+		if [ $i -lt $min ]; then
+			min=$(( i ))
 		fi
+		if [ $max -lt $i ]; then
+			max=$(( i))
+		fi
+	done
+	moy=$((moy / taille))
+fi
 
-		echo $max
-		echo $min
-		echo $moy
-	
+echo $max
+echo $min
+echo $moy
+```
 	
 ## Exercice 8. Pour les plus rapides
 
