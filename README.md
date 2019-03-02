@@ -25,7 +25,7 @@ Il s'agit de la variable d'environnement $HOME. On peut d'ailleurs l'afficher da
 		
 #### Question 4 : Créez une variable locale MY_VAR (le contenu n’a pas d’importance). Vérifiez que la variable existe.
 On va tout d'abord créer la variable locale MY_VAR : 
-```MY_VAR="abcd";```   
+```MY_VAR="abcd"```   
 On va ensuite l'afficher à l'aide du $ (on aurait MY_VAR d'affiché sinon) :
 ```echo $MY_VAR```
       
@@ -38,22 +38,27 @@ Enfin, en tapant ```exit``` nous revenons à la couche précédente, nous redonn
 	
 #### Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
 On va saisir la suite de commande : 
-```export MY_VAR="abcd"; 
+```
+export MY_VAR="abcd" 
 printenv MY_VAR
 ```
 La variable existe bien car elle est devenu une variable d'environnement.
 
 #### Question 7 : Créer la variable d’environnement NOMS ayant pour contenu vos noms de binômes séparés par un espace. Afficher la valeur de NOMS pour vérifier que l’affectation est correcte.
-* export NOMS="ospina neyroud"
-* printenv NOMS
-* L'affectation est correcte "ospina neyroud".
+On va saisir la suite de commande : 
+```
+export NOMS="ospina neyroud 
+printenv NOMS
+```
+L'affectation est correcte "ospina neyroud".
 
 #### Question 8 : Ecrivez une commande qui affiche ”Bonjour à vous deux, binôme1 binôme2 !” (où binôme1 et binôme2 sont vos deux noms) en utilisant la variable NOMS.
-* On créer un script bash "nano script.sh" avec le contenu suivant :
-* #!/bin/bash
-* echo 'Bonjour à vous deux,' $NOMS '!'
-* On le rend executable avec la commande "chmod u+x script.sh"
-* et on l'execute avec "./script.sh"
+On va créer un script bash "nano script.sh" avec le contenu suivant :
+```
+#!/bin/bash
+echo 'Bonjour à vous deux,' $NOMS '!'
+```
+On le rend ensuite executable avec la commande ```chmod u+x script.sh``` et on l'execute avec ```./script.sh```.
       
 #### Question 9 : Quelle différence y a-t-il entre donner une valeur vide à une variable et l’utilisation de la commande unset ?
 * La commande "unset" supprime la variable d'environnement du système alors que donner une valeur vide à une variable ne la supprime pas mais laisse un contenu vide.
