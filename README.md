@@ -4,13 +4,13 @@ Ce deuxième TP a pour but d’approfondir vos connaissances sur Bash, les varia
 
 ## Exercice 1. Variables d’environnement
 	
-#### Question 1 : Dans quels dossiers bash trouve-t-il les commandes tapées par l’utilisateur ?
+__#### Question 1 : Dans quels dossiers bash trouve-t-il les commandes tapées par l’utilisateur ?__
 On les trouve dans le dossier "bin".
       
-#### Question 2 : Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans votre répertoire personnel ?
+__#### Question 2 : Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans votre répertoire personnel ?__
 Il s'agit de la variable "HOME". On peut d'ailleurs l'afficher dans le terminal en saisissant la commande "printenv HOME".
       
-#### Question 3 : Explicitez le rôle des variables LANG, PWD, OLDPWD, SHELL et _.
+__#### Question 3 : Explicitez le rôle des variables LANG, PWD, OLDPWD, SHELL et _.__
 * "LANG" contient la langue sélectionnée pour le système, "fr_FR.UTF-8" dans notre cas.
 * "PWD" contient le chemin du répertoire courant, "/bin" dans notre cas.
 * "OLDPWD" contient le chemin de l'ancien répertoire courant "/fs03/share/users/pierre.neyroud/home" dans notre cas.
