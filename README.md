@@ -4,7 +4,7 @@ Ce deuxième TP a pour but d’approfondir vos connaissances sur Bash, les varia
 
 ## Exercice 1. Variables d’environnement
 	
-__#### Question 1 : Dans quels dossiers bash trouve-t-il les commandes tapées par l’utilisateur ?__
+__Question 1 : Dans quels dossiers bash trouve-t-il les commandes tapées par l’utilisateur ?__
 On les trouve dans le dossier "bin".
       
 __#### Question 2 : Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans votre répertoire personnel ?__
