@@ -78,9 +78,12 @@ $HOME =  /fs03/share/users/pierre.neyroud/home
 ```
 Remarque : on utilise des "" pour que la variable soit interprétée comme telle et non comme un texte.
 	
-Vous enregistrerez vos scripts dans un dossier script que vous créerez dans votre répertoire personnel.
-Tous les scripts sont bien entendu à tester.
-Ajoutez le chemin vers script à votre PATH de manière permanente.
+#### Vous enregistrerez vos scripts dans un dossier script que vous créerez dans votre répertoire personnel. Tous les scripts sont bien entendu à tester. Ajoutez le chemin vers script à votre PATH de manière permanente.
+On créer un dossier "script" à l'aide de la commande ```mkdir```.  
+Ensuite nous allons ajouter le chemin vers ce dossier dans la variable d'environnement PATH:
+* Entrer dans le fichier ```vim .bashrc```  
+* Ajouter à la fin du fichier ```echo PATH=$PATH:~/script >> ~/.bashrc```  
+* Relire le bashrc à l'aide de la source ```~/.bashrc.```  
 
 
 ## Exercice 2. Contrôle de mot de passe
