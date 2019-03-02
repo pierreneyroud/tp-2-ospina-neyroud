@@ -203,59 +203,17 @@ echo 'Gagné !'
 #### Question 2 : Généralisez le programme à un nombre quelconque de paramètres (pensez à SHIFT)
 #### Question 3 : Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies et stockées au fur et à mesure dans un tableau.
 
-```sh  
+```sh
 #!/bin/bash
 
 function is_number()
 {
-    re='^[+-]?[0-9]+([.][0-9]+)?$'
-    if ! [[ $1 =~ $re ]] ; then
-        return 1
-    else
-        return 0
-    fi
-}
-
-sum=0
-count=0
-min=$1
-max=$1
-
-while (("$#")); do
-    is_number $1
-    if [[ $? = 1 ]]; then
-        echo Un des paramètres n\'est pas un nombre
-        exit
-    fi
-
-    sum=$((sum + $1))
-    count=$((count + 1))
-
-    if [[ $1 -gt $max ]]; then
-        max=$1
-    elif [[ $1 -lt $min ]]; then
-        min=$1
-    fi
-    shift
-done
-
-echo Min: $min
-echo Max: $max
-printf 'Moyenne: %.2f\n' $(echo "$sum / $count" | bc -l)
-
-```
-
-```sh  
-#!/bin/bash
-
-function is_number()
-{
-    re='^[+-]?[0-9]+([.][0-9]+)?$'
-    if ! [[ $1 =~ $re ]] ; then
-        return 1
-    else
-        return 0
-    fi
+	re='^[+-]?[0-9]+([.][0-9]+)?$'
+	if ! [[ $1 =~ $re ]] ; then
+		return 1
+	else
+		return 0
+	fi
 }
 
 values=()
@@ -295,11 +253,16 @@ echo Min: $min
 echo Max: $max
 printf 'Moyenne: %.2f\n' $(echo "$sum / $index" | bc -l)
 ```
-
 	
 ## Exercice 8. Pour les plus rapides
 
 #### Écrivez un script qui affiche les combinaisons possibles de couleurs (cf. TP 1)
-	
+```sh
+for i in $(seq 0 37); do
+	for j in $(seq 40 47); do
+		echo -e \\"e[0;"$j"mBash\\e[0m"
+	done;
+done;
+```
 	
 	
