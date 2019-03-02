@@ -37,9 +37,13 @@ Enfin, en tapant ```exit``` nous revenons à la couche précédente, nous redonn
 
 	
 #### Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
-* export MY_VAR="abcd";
-* printenv MY_VAR
-* La variable existe bien car elle est devenu une variable d'environnement elle n'est plus locale.
+On va saisir la suite de commande : 
+```
+export MY_VAR="abcd";
+printenv MY_VAR
+
+```
+La variable existe bien car elle est devenu une variable d'environnement.
 
 #### Question 7 : Créer la variable d’environnement NOMS ayant pour contenu vos noms de binômes séparés par un espace. Afficher la valeur de NOMS pour vérifier que l’affectation est correcte.
 * export NOMS="ospina neyroud"
