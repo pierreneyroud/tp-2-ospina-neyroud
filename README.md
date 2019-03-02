@@ -262,7 +262,7 @@ input="0"
 index=0
 
 while [ -n "$input" ]; do
-    read -p "Entrer un nombre: " input
+    read -p "Entrez un nombre: " input
 
     if [ -n "$input" ]; then
         is_number $input
