@@ -208,12 +208,53 @@ echo 'Gagné !'
 
 function is_number()
 {
-	re='^[+-]?[0-9]+([.][0-9]+)?$'
-	if ! [[ $1 =~ $re ]] ; then
-		return 1
-	else
-		return 0
-	fi
+    re='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [[ $1 =~ $re ]] ; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+sum=0
+count=0
+min=$1
+max=$1
+
+while (("$#")); do
+    is_number $1
+    if [[ $? = 1 ]]; then
+        echo Un des paramètres n\'est pas un nombre
+        exit
+    fi
+
+    sum=$((sum + $1))
+    count=$((count + 1))
+
+    if [[ $1 -gt $max ]]; then
+        max=$1
+    elif [[ $1 -lt $min ]]; then
+        min=$1
+    fi
+    shift
+done
+
+echo Min: $min
+echo Max: $max
+printf 'Moyenne: %.2f\n' $(echo "$sum / $count" | bc -l)
+```
+
+```sh
+#!/bin/bash
+
+function is_number()
+{
+    re='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [[ $1 =~ $re ]] ; then
+        return 1
+    else
+        return 0
+    fi
 }
 
 values=()
