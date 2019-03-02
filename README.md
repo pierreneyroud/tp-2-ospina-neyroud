@@ -25,12 +25,14 @@ Il s'agit de la variable d'environnement $HOME. On peut d'ailleurs l'afficher da
 		
 #### Question 4 : Créez une variable locale MY_VAR (le contenu n’a pas d’importance). Vérifiez que la variable existe.
 On va tout d'abord créer la variable locale MY_VAR : 
-``` MY_VAR="abcd"; ```   
+```MY_VAR="abcd";```   
 On va ensuite l'afficher à l'aide du $ (on aurait MY_VAR d'affiché sinon) :
-``` echo $MY_VAR ```
+```echo $MY_VAR```
       
 #### Question 5 : Tapez ensuite la commande bash. Que fait-elle ? La variable MY_VAR existe-t-elle ? Expliquez. A la fin de cette question, tapez la commande exit pour revenir dans votre session initiale.
-* "bash" signifie Bourne Again Shell, elle ouvre un nouveau shell (interpréteur de commandes) sh amélioré, et la version par défaut sous Linux.
+Taper la commande ```bash```   
+
+"bash" signifie Bourne Again Shell, elle ouvre un nouveau shell (interpréteur de commandes) sh amélioré, et la version par défaut sous Linux.
 * La variable "MY_VAR" n'existe pas car elle a été déclaré en tant que variable locale et n'est donc disponible que dans la session où elle a été créée.
 	
 #### Question 6 : Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez.
