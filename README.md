@@ -208,49 +208,94 @@ echo 'Gagné !'
 
 function is_number()
 {
-	re='^[+-]?[0-9]+([.][0-9]+)?$'
-	if ! [[ $1 =~ $re ]] ; then
-		return 1
-	else
-		return 0
-	fi
+    re='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [[ $1 =~ $re ]] ; then
+        return 1
+    else
+        return 0
+    fi
 }
 
-taille=0
-test=1
-while [ test ] :
-do
-	read -p "Entrez un nouveau nombre ou stop " input
-	if [ input = "stop" ]; then
-		test=0
-	else
-		tab[taille]=$input
-		taille++
-	fi
-done
-if [ taille -eq 0 ]; then
-	exit
-else
-	max=${tab[0]}
-	min=${tab[0]}
-	moy=0
-	for i in tab
-	do
-		moy=$(( moy + i ))
-		if [ $i -lt $min ]; then
-			min=$(( i ))
-		fi
-		if [ $max -lt $i ]; then
-			max=$(( i))
-		fi
-	done
-	moy=$((moy / taille))
-fi
+sum=0
+count=0
+min=$1
+max=$1
 
-echo $max
-echo $min
-echo $moy
+while (("$#")); do
+    is_number $1
+    if [[ $? = 1 ]]; then
+        echo Un des paramètres n\'est pas un nombre
+        exit
+    fi
+
+    sum=$((sum + $1))
+    count=$((count + 1))
+
+    if [[ $1 -gt $max ]]; then
+        max=$1
+    elif [[ $1 -lt $min ]]; then
+        min=$1
+    fi
+    shift
+done
+
+echo Min: $min
+echo Max: $max
+printf 'Moyenne: %.2f\n' $(echo "$sum / $count" | bc -l)
+
 ```
+
+```sh  
+#!/bin/bash
+
+function is_number()
+{
+    re='^[+-]?[0-9]+([.][0-9]+)?$'
+    if ! [[ $1 =~ $re ]] ; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+values=()
+input="0"
+index=0
+
+while [ -n "$input" ]; do
+    read -p "Entrer un nombre: " input
+
+    if [ -n "$input" ]; then
+        is_number $input
+        if [[ $? = 1 ]]; then
+            echo Ce n\'est pas un nombre !
+        else
+            values[$index]=$input
+            index=$(( $index + 1 ))
+        fi
+    fi
+done
+
+sum=0
+min=${values[0]}
+max=${values[0]}
+
+for n in ${values[@]}; do
+    sum=$((sum + $n))
+    count=$((count + 1))
+
+    if [[ $n -gt $max ]]; then
+        max=$n
+    elif [[ $n -lt $min ]]; then
+        min=$n
+    fi
+done
+
+echo Min: $min
+echo Max: $max
+printf 'Moyenne: %.2f\n' $(echo "$sum / $index" | bc -l)
+```
+
 	
 ## Exercice 8. Pour les plus rapides
 
